@@ -1,0 +1,23 @@
+#!/usr/bin/env pybricks-micropython
+
+from pybricks.hubs import EV3Brick
+from pybricks.ev3devices import ColorSensor
+from pybricks.parameters import Port
+from pybricks.tools import wait
+
+# Initialiseer de EV3 Brick
+ev3 = EV3Brick()
+
+# Initialiseer de kleursensor op poort S2
+color_sensor = ColorSensor(Port.S2)
+
+# Oneindige lus om de reflectiewaarde te lezen en af te drukken
+while True:
+    # Lees de reflectiewaarde
+    reflectie = color_sensor.reflection()
+    
+    # Print de reflectiewaarde naar de console
+    print("Reflectiewaarde:", reflectie)
+    
+    # Wacht 1000 milliseconden (1 seconde) voor de volgende lezing
+    wait(1000)
